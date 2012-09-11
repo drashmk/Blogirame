@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear_newest"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/relative_relative_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_view_item_background"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/txt_newest_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/img_newest"
+            android:gravity="left"
+            android:padding="@dimen/margin_normal"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blue_trademark" />
+
+        <TextView
+            android:id="@+id/txt_newest_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/txt_newest_title"
+            android:layout_below="@+id/txt_newest_title"
+            android:gravity="left"
+            android:maxLines="4"
+            android:minLines="2"
+            android:padding="@dimen/margin_normal"
+            android:text="TextView" />
+
+        <ImageView
+            android:id="@+id/img_newest"
+            android:layout_width="@dimen/image_small"
+            android:layout_height="@dimen/image_small"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin_normal"
+            android:scaleType="centerCrop"
+            android:src="@drawable/dummy_newest" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_newest_footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_view_item_footer_background" >
+
+        <ImageView
+            android:id="@+id/img_newest_echo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/margin_normal"
+            android:src="@drawable/ic_action_echo" />
+
+        <TextView
+            android:id="@+id/txt_newest_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin_normal"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/txt_newest_echo_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_newest_echo"
+            android:text="TextView" />
+    </RelativeLayout>
+
+</LinearLayout>

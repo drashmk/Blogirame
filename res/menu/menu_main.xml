@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_refresh"
+        android:visible="false">
+    </item>
+    <item
+        android:id="@+id/menu_popular"
+        android:icon="@drawable/ic_action_back_to_top"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_popular"
+        android:visible="false">
+    </item>
+    <item
+        android:id="@+id/menu_profile"
+        android:icon="@drawable/ic_action_logged_out"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_profile">
+    </item>
+    <item
+        android:id="@+id/menu_categories"
+        android:icon="@drawable/ic_action_categories"
+        android:showAsAction="ifRoom|withText"
+        android:title="@string/menu_categories_text">
+    </item>
+    <item
+        android:id="@+id/menu_toggle_image_loading"
+        android:showAsAction="never"
+        android:title="@string/menu_image_loading_disable ">
+    </item>
+
+</menu>

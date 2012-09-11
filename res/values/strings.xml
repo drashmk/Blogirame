@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Блогираме</string>
+    <string name="menu_profile">Профил</string>
+    <string name="menu_categories_text">Категории</string>
+    <string formatted="false" name="item_description_format">&lt;b>%s&lt;/b> - %s</string>
+    <string name="menu_share">Сподели</string>
+    <string formatted="false" name="share_format">%s %s via @blogirame</string>
+    <string name="refresh_push_down">Повлечи да освежиш...</string><string name="refresh_pull_up">Повлечи да вчиташ...</string><string name="refresh_loading">Се вчитува...</string><string name="refresh_release">Отпушти да освежиш...</string>
+    <string name="menu_refresh">Освежи</string><string name="menu_popular">Популарни</string>
+    <string name="toast_no_entries">Нема записи во оваа категорија</string><string name="toast_no_internet">Блогираме не може да се поврзе на интернет.\nВе молиме овозможете интернет пристап и обидете се повторно.</string>
+    <string name="btn_confirm">Потврди</string><string name="btn_cancel">Откажи</string><string name="btn_register">Регистрирај се</string><string name="btn_settings">Нагодувања</string>
+    <string name="dialog_login_title">Пријави се</string><string name="dialog_login_failed_title">Неуспешно пријавување</string><string formatted="false" name="dialog_login_failed_message">Проверете ја вашата е-пошта/лозинка и обидете се повторно.\n\nНов корисник?\nРегистрирајте се на Блогираме.</string><string name="dialog_logout_message">Дали сакате да се одјавите?</string><string name="dialog_login_email">е-пошта</string><string name="dialog_login_password">лозинка</string>
+    <string name="toast_echo_not_logged_in">Ве молиме пријавете се за да го искористите ехото.</string>
+    <string name="dialog_block_images">За намалување на сообраќајот можете да оневозможите вчитување на слики додека сте поврзани на мобилна мрежа.\n\nВо секој момент преку Мени-Прикажувај слики можете да ја промените одлуката\n\nДали сакате да ги блокирате сликите?</string>
+    <string name="btn_images_block">Блокирај </string><string name="btn_images_dispay">Прикажувај</string>
+    <string name="menu_image_loading_enable">Прикажувај слики</string><string name="menu_image_loading_disable ">Блокирај слики</string>
+
+</resources>
