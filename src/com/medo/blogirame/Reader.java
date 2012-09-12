@@ -12,7 +12,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,7 +19,6 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
@@ -143,7 +141,7 @@ public class Reader extends SherlockFragmentActivity {
 		webSettings.setJavaScriptEnabled(false);
 		webSettings.setJavaScriptCanOpenWindowsAutomatically(false);
 		webSettings.setBuiltInZoomControls(true);
-		webSettings.setDisplayZoomControls(false);
+//		webSettings.setDisplayZoomControls(false);
 		webSettings.setLoadWithOverviewMode(true);
 		webSettings.setGeolocationEnabled(true);
 		webSettings.setDomStorageEnabled(true);
