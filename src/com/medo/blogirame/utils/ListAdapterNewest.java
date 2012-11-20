@@ -24,7 +24,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.datanasov.blogirame.R;
+import com.medo.blogirame.R;
 
 public class ListAdapterNewest extends BaseAdapter {
 	

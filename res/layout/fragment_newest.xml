@@ -6,7 +6,7 @@
     android:orientation="vertical" >
 
     <com.handmark.pulltorefresh.library.PullToRefreshListView
-        xmlns:ptr="http://schemas.android.com/apk/res/com.datanasov.blogirame"
+        xmlns:ptr="http://schemas.android.com/apk/res/com.medo.blogirame"
         android:id="@+id/list_newest"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

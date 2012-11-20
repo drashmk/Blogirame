@@ -41,7 +41,6 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
-import com.datanasov.blogirame.R;
 import com.medo.blogirame.fragments.NewestFragment;
 import com.medo.blogirame.fragments.PopularPortraitFragment;
 import com.medo.blogirame.utils.Constants;

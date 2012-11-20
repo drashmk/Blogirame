@@ -22,7 +22,7 @@ import android.widget.Gallery;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
-import com.datanasov.blogirame.R;
+import com.medo.blogirame.R;
 import com.medo.blogirame.utils.Constants;
 import com.medo.blogirame.utils.ListAdapterPopular;
 import com.medo.blogirame.utils.ListObjectBlogPost;
