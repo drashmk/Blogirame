@@ -1,5 +1,7 @@
 package com.medo.blogirame;
 
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,7 +13,10 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -25,6 +30,8 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
+import com.datanasov.blogirame.R;
+import com.datanasov.custom.ZeWebView;
 import com.medo.blogirame.utils.Constants;
 
 public class Reader extends SherlockFragmentActivity {
@@ -32,31 +39,57 @@ public class Reader extends SherlockFragmentActivity {
 	//variables
 	private String mEmail = null;
 	
-	private WebView mWebView = null;
+	private ZeWebView mWebView = null;
 	private ProgressBar mProgressBar = null;
+	private String mobile_url = null;
+	private String real_url = null;
+	private String title = "";
+	
+	
 	//shared preferences
 	private SharedPreferences mPreferences = null;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//slide in from bottom
+		//TODO: ability to enable/disable from options 
+		overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.fade_out_activity);
         //feature for displaying progress bar
         requestWindowFeature(Window.FEATURE_PROGRESS);
 		setContentView(R.layout.reader);
 		//set title - blog name and display home for navigation
-		getSupportActionBar().setTitle(getIntent().getExtras().getString(Constants.JSON_PARAM_BLOG_TITLE));
+		
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 		
         mPreferences = getSharedPreferences(Constants.PREFERENCE_NAME, Context.MODE_PRIVATE);
 		
 		mProgressBar = (ProgressBar) findViewById(R.id.progress_bar_reader);		
 		
-		//initialize web view and load the cannonical url
-		mWebView = (WebView) findViewById(R.id.web_view_reader);
+		//initialize web view and load the canonical URL
+		mWebView = (ZeWebView) findViewById(R.id.web_view_reader);
 		setWebViewSettings();
-		mWebView.loadUrl(getIntent().getExtras().getString(Constants.JSON_PARAM_URL_CANONICAL));
 		
-		
+
+	    if (Intent.ACTION_VIEW.equals(getIntent().getAction())) {
+	        final List<String> segments =  getIntent().getData().getPathSegments();
+	        if (segments.size() > 1) {
+	        	mobile_url = "http://blogirame.mk/m/"+segments.get(1)+"/";
+	        	real_url = "http://blogirame.mk/g/"+segments.get(1)+"/";
+	        }
+	    }
+	    else{
+	    	mobile_url = getIntent().getExtras().getString(Constants.JSON_PARAM_URL_CANONICAL);
+	    	real_url = getIntent().getExtras().getString(Constants.JSON_PARAM_URL_BLOGIRAME);
+	    	title = getIntent().getExtras().getString(Constants.JSON_PARAM_POST_TITLE);
+	    	
+	    }
+	    getSupportActionBar().setTitle(title);
+	    if(mobile_url != null)
+	    	mWebView.loadUrl(mobile_url);
+	    else 
+	    	finish();
 	}
 	
 	@Override
@@ -75,7 +108,10 @@ public class Reader extends SherlockFragmentActivity {
 			//using custom view/layout for displaying echo icon + count
 		   	MenuItem echo = menu.findItem(R.id.menu_echo);
 		   	TextView echoCount = (TextView) echo.getActionView().findViewById(R.id.txt_menu_echo);
-		   	echoCount.setText(""+getIntent().getExtras().getInt(Constants.JSON_PARAM_ECHOES));
+		   	if(getIntent().getExtras() != null)
+		   		echoCount.setText(""+getIntent().getExtras().getInt(Constants.JSON_PARAM_ECHOES));
+		   	else
+		   		echoCount.setText("");
 		   	//TODO: change this when echo is available
 		   	
 //		   	echo.getActionView().setOnClickListener(new OnClickListener() {
@@ -124,8 +160,8 @@ public class Reader extends SherlockFragmentActivity {
 			//the subject is the name of the app, the body is the title + the link + @blogirame
 			intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
 			String textToShare = String.format(getString(R.string.share_format),
-					getIntent().getExtras().getString(Constants.JSON_PARAM_POST_TITLE), 
-					getIntent().getExtras().getString(Constants.JSON_PARAM_URL_BLOGIRAME));
+			    	getIntent().getExtras().getString(Constants.JSON_PARAM_POST_TITLE) != null ? getIntent().getExtras().getString(Constants.JSON_PARAM_POST_TITLE) : mWebView.getTitle(), 
+					real_url);
 			intent.putExtra(Intent.EXTRA_TEXT, textToShare);
 			//start the chooser
 			startActivity(Intent.createChooser(intent, getString(R.string.menu_share)));
@@ -225,6 +261,17 @@ public class Reader extends SherlockFragmentActivity {
 		.show();
 	}
 
+	
+	/* 
+	 * Nice exit animation
+	 */
+	@Override
+	public void finish() {
+	    super.finish();
+	  //TODO: ability to enable/disable from options 
+	    overridePendingTransition(0, R.anim.slide_out_to_bottom);
+	}
+	
 	private class CustomWebClient extends WebViewClient {
 			
 			@Override
@@ -237,6 +284,8 @@ public class Reader extends SherlockFragmentActivity {
 			public void onPageFinished(WebView view, String url) {
 		        //hide loading bar
 	//			getSherlock().setProgressBarVisibility(false);
+				if(getSupportActionBar().getTitle().length() == 0)
+					getSupportActionBar().setTitle(view.getTitle());
 				super.onPageFinished(view, url);
 			}
 			
@@ -292,6 +341,6 @@ public class Reader extends SherlockFragmentActivity {
 			getSherlock().setProgressBarIndeterminateVisibility(false);
 			super.onPostExecute(result);
 		}
-		
 	}
+
 }

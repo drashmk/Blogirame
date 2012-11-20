@@ -2,9 +2,11 @@ Blogirame
 =========
 
 Android app for the popular Macedonian blog aggregator Blogirame.mk
+Forked from [The Medo](https://github.com/TheMedo/Blogirame)
 
-Version 0.9c
- * Splash screen optimization for tablet compatibility
- 
-Version 0.9b
- * Fixed bug that caused app crash on Android 2.2 and 2.3 devices.
+Added:
+* Open blogirame.mk/g/ links in application
+* Close the reader with swipe down using two fingers
+* Few nice animations
+
+Download [Blogirame.apk] (https://dl.dropbox.com/u/45386689/Blogirame.apk)

@@ -19,7 +19,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.medo.blogirame.R;
+import com.datanasov.blogirame.R;
 
 public class ListAdapterPopular extends BaseAdapter {
 	

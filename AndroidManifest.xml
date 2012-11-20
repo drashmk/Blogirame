@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.medo.blogirame"
+    package="com.datanasov.blogirame"
     android:versionCode="4"
-    android:versionName="0.9c" >
+    android:versionName="0.9c-datanasov-1" >
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="15"/>
+    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" android:theme="@style/Theme.Sherlock.Light">
+        android:label="@string/app_name" android:theme="@style/Blogirame">
         <activity
-            android:name=".Main"
+            android:name="com.medo.blogirame.Main"
             android:label="@string/app_name" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="Reader"></activity>
+        <activity android:name="com.medo.blogirame.Reader">
+             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:host="blogirame.mk"
+                    android:scheme="http"
+                    android:pathPrefix="/g/"  />
+                <data
+                    android:host="www.blogirame.mk"
+                    android:scheme="http"
+                    android:pathPrefix="/g/" />
+            </intent-filter>            
+        </activity>
     </application>
 
 </manifest>

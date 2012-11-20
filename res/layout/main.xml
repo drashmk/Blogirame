@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+
     <ImageView
         android:id="@+id/img_splash"
         android:layout_width="match_parent"
@@ -18,20 +18,20 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin_normal"
         android:progressDrawable="@drawable/progress_bar_custom" />
-
+
     <fragment
+        android:id="@+id/fragment_popular"
         android:name="com.medo.blogirame.fragments.PopularPortraitFragment"
-                android:id="@+id/fragment_popular"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <!-- Preview: layout=@layout/fragment_popular -->
 
     </fragment>
-
+
     <fragment
-        android:name="com.medo.blogirame.fragments.NewestFragment"
         android:id="@+id/fragment_newest"
+        android:name="com.medo.blogirame.fragments.NewestFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 

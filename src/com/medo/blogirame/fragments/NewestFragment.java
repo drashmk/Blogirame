@@ -34,11 +34,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.SherlockFragment;
+import com.datanasov.blogirame.R;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
-import com.medo.blogirame.R;
 import com.medo.blogirame.utils.Constants;
 import com.medo.blogirame.utils.DataBaseCategories;
 import com.medo.blogirame.utils.ListAdapterNewest;

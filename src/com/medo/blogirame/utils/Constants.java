@@ -60,5 +60,9 @@ public class Constants {
 	//other
 	public static String PREFERENCE_CATEGORIES = "categories";
 	public static String URL_BLOGIRAME_REGISTER = "http://blogirame.mk/user/login/";
+	
+	//swipe gesture 
+	public static int SWIPE_MIN_DISTANCE = 135;
+	public static int SWIPE_MAX_OFF_PATH = 45;
 
 }

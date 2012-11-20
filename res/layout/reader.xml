@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-
+
     <ProgressBar
         android:id="@+id/progress_bar_reader"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="@dimen/margin_normal"
         android:progressDrawable="@drawable/progress_bar_custom" />
-
-    <WebView
+
+    <com.datanasov.custom.ZeWebView
         android:id="@+id/web_view_reader"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

@@ -41,6 +41,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.view.Window;
+import com.datanasov.blogirame.R;
 import com.medo.blogirame.fragments.NewestFragment;
 import com.medo.blogirame.fragments.PopularPortraitFragment;
 import com.medo.blogirame.utils.Constants;
@@ -457,6 +458,17 @@ public class Main extends SherlockFragmentActivity implements OnFragmentItemClic
 				mMainMenu.findItem(R.id.menu_profile).setVisible(false);
 				mMainMenu.findItem(R.id.menu_refresh).setVisible(true);
 		}
+	}
+
+
+	/* 
+	 * Nice exit animation, makes app exiting eye cathcing
+	 */
+	@Override
+	public void finish() {
+		super.finish();
+		//TODO: ability to enable/disable from options 
+		overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
 	}
 
 	private class LoginToServer extends AsyncTask<String, Void, String[]> {
